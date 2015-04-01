@@ -1,0 +1,20 @@
+{
+    "name": "php-riak/riak-clients-performance-comparison",
+    "description": "PHP Riak Clients Performance Comparison",
+    "require": {
+        "php-riak/riak-client": "~1.0",
+        "athletic/athletic": "~0.1",
+        "basho/riak": "~1.4"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "FabioBatSilva",
+            "email": "fabio.bat.silva@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
