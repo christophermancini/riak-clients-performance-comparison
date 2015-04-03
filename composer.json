@@ -2,9 +2,11 @@
     "name": "php-riak/riak-clients-performance-comparison",
     "description": "PHP Riak Clients Performance Comparison",
     "require": {
+        "ext-riak":             ">=1.1.0",
+        "php":                  ">=5.4.0",
         "php-riak/riak-client": "~1.0",
-        "athletic/athletic": "~0.1",
-        "basho/riak": "~1.4"
+        "athletic/athletic":    "~0.1",
+        "basho/riak":           "~1.4"
     },
     "autoload": {
         "psr-0": { "": "src/" }

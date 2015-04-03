@@ -54,9 +54,22 @@ class FetchObjectEvent extends AthleticEvent
     /**
      * @iterations 1000
      */
+    public function fetchUsingPhpRiakProto()
+    {
+        $connection = $this->clients->getPhpRiak();
+        $bucket     = new \Riak\Bucket($connection, $this->bucket);
+
+        $bucket->get($this->key);
+    }
+
+    /**
+     * @iterations 1000
+     */
     public function fetchUsingBashoRiakHttp()
     {
-        $bucket = $this->clients->getBashoRiak()->bucket($this->bucket);
+        $riak   = $this->clients->getBashoRiak();
+        $bucket = $riak->bucket($this->bucket);
+
         $bucket->get($this->key);
     }
 
