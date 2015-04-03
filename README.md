@@ -29,7 +29,7 @@ RiakClientPerformanceComparison\FetchObjectEvent
 RiakClientPerformanceComparison\StoreObjectEvent
     Method Name                 Iterations    Average Time      Ops/second
     -------------------------  ------------  --------------    -------------
-    fetchUsingPhpRiakProto   : [1,000     ] [0.0010141553879] [986.04219]
+    storeUsingPhpRiakProto   : [1,000     ] [0.0010141553879] [986.04219]
     storeUsingRiakClientProto: [1,000     ] [0.0013224580288] [756.16767]
     storeUsingBashoRiakHttp  : [1,000     ] [0.0025912058353] [385.92071]
     storeUsingRiakClientHttp : [1,000     ] [0.0027356014252] [365.55033]

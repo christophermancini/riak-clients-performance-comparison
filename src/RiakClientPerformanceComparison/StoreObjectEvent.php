@@ -38,7 +38,7 @@ class StoreObjectEvent extends AthleticEvent
     /**
      * @iterations 1000
      */
-    public function fetchUsingPhpRiakProto()
+    public function storeUsingPhpRiakProto()
     {
         $connection = $this->clients->getPhpRiak();
         $bucket     = new \Riak\Bucket($connection, $this->bucket);
