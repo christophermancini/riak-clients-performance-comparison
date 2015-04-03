@@ -35,3 +35,6 @@ RiakClientPerformanceComparison\StoreObjectEvent
     storeUsingRiakClientHttp : [1,000     ] [0.0027356014252] [365.55033]
 
 ```
+
+![Fetch Object](https://raw.githubusercontent.com/FabioBatSilva/riak-clients-performance-comparison/master/graphs/fetch.jpg)
+![Store Object](https://raw.githubusercontent.com/FabioBatSilva/riak-clients-performance-comparison/master/graphs/store.jpg)
