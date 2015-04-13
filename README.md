@@ -6,6 +6,11 @@ Performance Comparison Between Some PHP Riak Clients
 * [riak client](https://github.com/php-riak/riak-client) - PHP Client with support for HTTP and Protocol Buffers
 * [php riak](https://github.com/php-riak/php_riak) - PHP Extension with support for Protocol Buffers only
 
+
+
+#### Please remember to disable XDebug before running this.
+
+
 ```bash
 
 php -v
