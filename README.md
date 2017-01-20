@@ -13,6 +13,32 @@ Performance Comparison Between Some PHP Riak Clients
 ```bash
 php -v
 
+PHP 7.0.15 (cli) (built: Jan 17 2017 17:10:58) ( NTS )
+Copyright (c) 1997-2017 The PHP Group
+Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
+    with Xdebug v2.5.0, Copyright (c) 2002-2016, by Derick Rethans
+
+./vendor/bin/athletic -p src/RiakClientPerformanceComparison
+
+RiakClientPerformanceComparison\FetchObjectEvent
+    Method Name                 Iterations    Average Time      Ops/second
+    -------------------------  ------------  --------------    -------------
+    fetchUsingBashoRiakHttp  : [1,000     ] [0.0012883577347] [776.18194]
+    fetchUsingRiakClientHttp : [1,000     ] [0.0018057799339] [553.77734]
+    fetchUsingRiakClientProto: [1,000     ] [0.0009090194702] [1,100.08645]
+
+
+RiakClientPerformanceComparison\StoreObjectEvent
+    Method Name                 Iterations    Average Time      Ops/second
+    -------------------------  ------------  --------------    -------------
+    storeUsingBashoRiakHttp  : [1,000     ] [0.0016848459244] [593.52608]
+    storeUsingRiakClientHttp : [1,000     ] [0.0022830405235] [438.01237]
+    storeUsingRiakClientProto: [1,000     ] [0.0013103780746] [763.13853]
+```
+
+```bash
+php -v
+
 PHP 5.6.29 (cli) (built: Dec 10 2016 12:42:43)
 Copyright (c) 1997-2016 The PHP Group
 Zend Engine v2.6.0, Copyright (c) 1998-2016 Zend Technologies
