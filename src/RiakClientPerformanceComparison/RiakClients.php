@@ -23,7 +23,7 @@ class RiakClients
     protected $phpRiak;
 
     /**
-     * @var \Basho\Riak\Riak
+     * @var \Basho\Riak
      */
     protected $bashoRiak;
 
@@ -64,7 +64,7 @@ class RiakClients
     }
 
     /**
-     * @return \Basho\Riak\Riak
+     * @return \Basho\Riak
      */
     public function getBashoRiak()
     {
@@ -91,7 +91,7 @@ class RiakClients
      */
     public function getProtoUri()
     {
-        return $this->getEnv('RIAK_PROTO_URI', 'proto://127.0.0.1:8087');
+        return $this->getEnv('RIAK_PROTO_URI', 'proto://riak-test:8087');
     }
 
     /**
@@ -99,7 +99,7 @@ class RiakClients
      */
     public function getHttpUri()
     {
-        return $this->getEnv('RIAK_HTTP_URI', 'http://127.0.0.1:8098');
+        return $this->getEnv('RIAK_HTTP_URI', 'http://riak-test:8098');
     }
 
     /**
@@ -134,7 +134,7 @@ class RiakClients
     }
 
     /**
-     * @return \Basho\Riak\Riak
+     * @return \Basho\Riak
      */
     public function createBashoRiak()
     {
@@ -142,7 +142,12 @@ class RiakClients
         $host = parse_url($uri, PHP_URL_HOST);
         $port = parse_url($uri, PHP_URL_PORT);
 
-        return new \Basho\Riak\Riak($host, $port);
+        $node = (new \Basho\Riak\Node\Builder)
+            ->atHost($host)
+            ->onPort($port)
+            ->build();
+
+        return new \Basho\Riak([$node]);
     }
 
     /**

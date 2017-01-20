@@ -52,7 +52,7 @@ class FetchObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 1000
+     * @iterations 10000
      */
     public function fetchUsingPhpRiakProto()
     {
@@ -63,18 +63,21 @@ class FetchObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 1000
+     * @iterations 10000
      */
     public function fetchUsingBashoRiakHttp()
     {
-        $riak   = $this->clients->getBashoRiak();
-        $bucket = $riak->bucket($this->bucket);
+        $riak = $this->clients->getBashoRiak2();
 
-        $bucket->get($this->key);
+        $command = (new \Basho2\Riak\Command\Builder\FetchObject($riak))
+            ->buildLocation($this->key, $this->bucket)
+            ->build();
+
+        $command->execute($command);
     }
 
     /**
-     * @iterations 1000
+     * @iterations 10000
      */
     public function fetchUsingRiakClientHttp()
     {
@@ -86,7 +89,7 @@ class FetchObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 1000
+     * @iterations 10000
      */
     public function fetchUsingRiakClientProto()
     {
