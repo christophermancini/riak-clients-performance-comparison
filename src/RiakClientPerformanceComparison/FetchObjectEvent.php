@@ -52,24 +52,13 @@ class FetchObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 10000
-     */
-    public function fetchUsingPhpRiakProto()
-    {
-        $connection = $this->clients->getPhpRiak();
-        $bucket     = new \Riak\Bucket($connection, $this->bucket);
-
-        $bucket->get($this->key);
-    }
-
-    /**
-     * @iterations 10000
+     * @iterations 1000
      */
     public function fetchUsingBashoRiakHttp()
     {
-        $riak = $this->clients->getBashoRiak2();
+        $riak = $this->clients->getBashoRiakHttp();
 
-        $command = (new \Basho2\Riak\Command\Builder\FetchObject($riak))
+        $command = (new \Basho\Riak\Command\Builder\FetchObject($riak))
             ->buildLocation($this->key, $this->bucket)
             ->build();
 
@@ -77,7 +66,7 @@ class FetchObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 10000
+     * @iterations 1000
      */
     public function fetchUsingRiakClientHttp()
     {
@@ -89,7 +78,32 @@ class FetchObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 10000
+     * @iterations 1000
+     */
+    public function fetchUsingPhpRiakProto()
+    {
+        $connection = $this->clients->getPhpRiak();
+        $bucket     = new \Riak\Bucket($connection, $this->bucket);
+
+        $bucket->get($this->key);
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function fetchUsingBashoRiakProto()
+    {
+        $riak = $this->clients->getBashoRiakProto();
+
+        $command = (new \Basho\Riak\Command\Builder\FetchObject($riak))
+            ->buildLocation($this->key, $this->bucket)
+            ->build();
+
+        $command->execute($command);
+    }
+
+    /**
+     * @iterations 1000
      */
     public function fetchUsingRiakClientProto()
     {

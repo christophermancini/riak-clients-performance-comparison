@@ -1,11 +1,18 @@
 {
     "name": "php-riak/riak-clients-performance-comparison",
     "description": "PHP Riak Clients Performance Comparison",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/basho/php-protobuf"
+        }
+    ],
    "require": {
         "php":                  ">=5.4.0",
-        "php-riak/riak-client": "v1.0.0-alpha7",
         "athletic/athletic":    "~0.1",
-        "basho/riak":           "~3.3"
+        "basho/riak":           "~3.3",
+        "basho/riak-pb":        "~1.3",
+        "php-riak/riak-client": "dev-master"
     },
     "autoload": {
         "psr-0": { "": "src/" }

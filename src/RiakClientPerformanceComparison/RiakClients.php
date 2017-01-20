@@ -25,7 +25,12 @@ class RiakClients
     /**
      * @var \Basho\Riak
      */
-    protected $bashoRiak;
+    protected $bashoRiakHttp;
+
+    /**
+     * @var \Basho\Riak
+     */
+    protected $bashoRiakProto;
 
     /**
      * @return \Riak\Client\RiakClient
@@ -66,13 +71,25 @@ class RiakClients
     /**
      * @return \Basho\Riak
      */
-    public function getBashoRiak()
+    public function getBashoRiakHttp()
     {
-        if ($this->bashoRiak == null) {
-            $this->bashoRiak = $this->createBashoRiak();
+        if ($this->bashoRiakHttp == null) {
+            $this->bashoRiakHttp = $this->createBashoRiak();
         }
 
-        return $this->bashoRiak;
+        return $this->bashoRiakHttp;
+    }
+
+    /**
+     * @return \Basho\Riak
+     */
+    public function getBashoRiakProto()
+    {
+        if ($this->bashoRiakProto == null) {
+            $this->bashoRiakProto = $this->createBashoRiak(true);
+        }
+
+        return $this->bashoRiakProto;
     }
 
     /**
@@ -132,13 +149,12 @@ class RiakClients
 
         return $client;
     }
-
     /**
      * @return \Basho\Riak
      */
-    public function createBashoRiak()
+    public function createBashoRiak($pb = false)
     {
-        $uri  = $this->getHttpUri();
+        $uri = $pb ? $this->getProtoUri() : $this->getHttpUri();
         $host = parse_url($uri, PHP_URL_HOST);
         $port = parse_url($uri, PHP_URL_PORT);
 
@@ -147,7 +163,7 @@ class RiakClients
             ->onPort($port)
             ->build();
 
-        return new \Basho\Riak([$node]);
+        return new \Basho\Riak([$node], [], $pb ? new \Basho\Riak\Api\Pb() : null);
     }
 
     /**

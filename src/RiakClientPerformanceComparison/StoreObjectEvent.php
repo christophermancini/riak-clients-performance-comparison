@@ -36,24 +36,11 @@ class StoreObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 10000
-     */
-    public function storeUsingPhpRiakProto()
-    {
-        $connection = $this->clients->getPhpRiak();
-        $bucket     = new \Riak\Bucket($connection, $this->bucket);
-        $object     = new \Riak\Object();
-
-        $object->setContent($this->data);
-        $bucket->put($object);
-    }
-
-    /**
-     * @iterations 10000
+     * @iterations 1000
      */
     public function storeUsingBashoRiakHttp()
     {
-        $riak = $this->clients->getBashoRiak();
+        $riak = $this->clients->getBashoRiakHttp();
 
         $command = (new \Basho\Riak\Command\Builder\StoreObject($riak))
             ->buildJsonObject($this->data)
@@ -64,7 +51,7 @@ class StoreObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 10000
+     * @iterations 1000
      */
     public function storeUsingRiakClientHttp()
     {
@@ -80,7 +67,35 @@ class StoreObjectEvent extends AthleticEvent
     }
 
     /**
-     * @iterations 10000
+     * @iterations 1000
+     */
+    public function storeUsingPhpRiakProto()
+    {
+        $connection = $this->clients->getPhpRiak();
+        $bucket     = new \Riak\Bucket($connection, $this->bucket);
+        $object     = new \Riak\Object();
+
+        $object->setContent($this->data);
+        $bucket->put($object);
+    }
+
+    /**
+     * @iterations 1000
+     */
+    public function storeUsingBashoRiakProto()
+    {
+        $riak = $this->clients->getBashoRiakProto();
+
+        $command = (new \Basho\Riak\Command\Builder\StoreObject($riak))
+            ->buildJsonObject($this->data)
+            ->buildBucket($this->bucket)
+            ->build();
+
+        $command->execute();
+    }
+
+    /**
+     * @iterations 1000
      */
     public function storeUsingRiakClientProto()
     {
