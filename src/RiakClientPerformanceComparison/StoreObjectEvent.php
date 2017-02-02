@@ -68,7 +68,7 @@ class StoreObjectEvent extends AthleticEvent
 
     /**
      * @iterations 1000
-     *//*
+     */
     public function storeUsingBashoRiakProto()
     {
         $riak = $this->clients->getBashoRiakProto();
@@ -79,7 +79,7 @@ class StoreObjectEvent extends AthleticEvent
             ->build();
 
         $command->execute();
-    }*/
+    }
 
     /**
      * @iterations 1000

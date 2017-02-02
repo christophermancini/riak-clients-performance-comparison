@@ -23,17 +23,19 @@ Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
 RiakClientPerformanceComparison\FetchObjectEvent
     Method Name                 Iterations    Average Time      Ops/second
     -------------------------  ------------  --------------    -------------
-    fetchUsingBashoRiakHttp  : [1,000     ] [0.0012883577347] [776.18194]
-    fetchUsingRiakClientHttp : [1,000     ] [0.0018057799339] [553.77734]
-    fetchUsingRiakClientProto: [1,000     ] [0.0009090194702] [1,100.08645]
+    fetchUsingBashoRiakHttp  : [1,000     ] [0.0013204445839] [757.32069]
+    fetchUsingRiakClientHttp : [1,000     ] [0.0017948977947] [557.13479]
+    fetchUsingBashoRiakProto : [1,000     ] [0.0006323904991] [1,581.30143]
+    fetchUsingRiakClientProto: [1,000     ] [0.0009084224701] [1,100.80941]
 
 
 RiakClientPerformanceComparison\StoreObjectEvent
     Method Name                 Iterations    Average Time      Ops/second
     -------------------------  ------------  --------------    -------------
-    storeUsingBashoRiakHttp  : [1,000     ] [0.0016848459244] [593.52608]
-    storeUsingRiakClientHttp : [1,000     ] [0.0022830405235] [438.01237]
-    storeUsingRiakClientProto: [1,000     ] [0.0013103780746] [763.13853]
+    storeUsingBashoRiakHttp  : [1,000     ] [0.0017953886986] [556.98245]
+    storeUsingRiakClientHttp : [1,000     ] [0.0023630974293] [423.17341]
+    storeUsingBashoRiakProto : [1,000     ] [0.0011326997280] [882.84651]
+    storeUsingRiakClientProto: [1,000     ] [0.0013586490154] [736.02526]
 ```
 
 ```bash
