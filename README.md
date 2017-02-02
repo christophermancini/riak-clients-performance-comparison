@@ -16,26 +16,25 @@ php -v
 PHP 7.0.15 (cli) (built: Jan 17 2017 17:10:58) ( NTS )
 Copyright (c) 1997-2017 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2017 Zend Technologies
-    with Xdebug v2.5.0, Copyright (c) 2002-2016, by Derick Rethans
 
 ./vendor/bin/athletic -p src/RiakClientPerformanceComparison
 
 RiakClientPerformanceComparison\FetchObjectEvent
     Method Name                 Iterations    Average Time      Ops/second
     -------------------------  ------------  --------------    -------------
-    fetchUsingBashoRiakHttp  : [1,000     ] [0.0013204445839] [757.32069]
-    fetchUsingRiakClientHttp : [1,000     ] [0.0017948977947] [557.13479]
-    fetchUsingBashoRiakProto : [1,000     ] [0.0006323904991] [1,581.30143]
-    fetchUsingRiakClientProto: [1,000     ] [0.0009084224701] [1,100.80941]
+    fetchUsingBashoRiakHttp  : [1,000     ] [0.0011702659130] [854.50665]
+    fetchUsingRiakClientHttp : [1,000     ] [0.0014350209236] [696.85395]
+    fetchUsingBashoRiakProto : [1,000     ] [0.0005513722897] [1,813.65661]
+    fetchUsingRiakClientProto: [1,000     ] [0.0005822446346] [1,717.49114]
 
 
 RiakClientPerformanceComparison\StoreObjectEvent
     Method Name                 Iterations    Average Time      Ops/second
     -------------------------  ------------  --------------    -------------
-    storeUsingBashoRiakHttp  : [1,000     ] [0.0017953886986] [556.98245]
-    storeUsingRiakClientHttp : [1,000     ] [0.0023630974293] [423.17341]
-    storeUsingBashoRiakProto : [1,000     ] [0.0011326997280] [882.84651]
-    storeUsingRiakClientProto: [1,000     ] [0.0013586490154] [736.02526]
+    storeUsingBashoRiakHttp  : [1,000     ] [0.0016130833626] [619.93076]
+    storeUsingRiakClientHttp : [1,000     ] [0.0018760144711] [533.04493]
+    storeUsingBashoRiakProto : [1,000     ] [0.0010201246738] [980.27234]
+    storeUsingRiakClientProto: [1,000     ] [0.0010522584915] [950.33683]
 ```
 
 ```bash
